@@ -1,24 +1,24 @@
-class Basket:
-    def __init__(self):
-        self._basket = {}
+class Eg:
+    def __init__(self,amount):
+        self._amount = amount
 
-    def add_item(self,item,price):
-        if item in self._basket:
-            print("item already in the basket")
+    def check_balance(self):
+        return self._amount
+
+    def deposit(self,new_amount):
+        self._amount += new_amount
+
+    def withdraw(self,withdraw_amount):
+        if self._amount >= withdraw_amount:
+            self._amount -= withdraw_amount
         else:
-            self._basket[item] = price
-    def check_basket(self):
-        print(self._basket)
-
-    def basket_price(self):
-        return sum(self._basket.values())
+            print('not enough $$$')
 
 
-
-
-check = Basket()
-check.add_item('asf',13)
-check.add_item('asfa',15)
-check.add_item('asfa',15)
-check.check_basket()
-print(check.basket_price())
+test = Eg(100)
+print(test.check_balance())
+test.deposit(40)
+print(test.check_balance())
+test.withdraw(20)
+print(test.check_balance())
+test.withdraw(4000)
