@@ -1,20 +1,24 @@
-class User:
-    def __init__(self, name, age, email):
-        self._name = name
-        self._age = age
-        self._email = email
+class Basket:
+    def __init__(self):
+        self._basket = {}
 
-    def get_name(self):
-        return self._name
-    def get_age(self):
-        return self._age
-    def get_email(self):
-        return self._email
-    def set_age(self,new_age):
-        self._age = new_age
+    def add_item(self,item,price):
+        if item in self._basket:
+            print("item already in the basket")
+        else:
+            self._basket[item] = price
+    def check_basket(self):
+        print(self._basket)
+
+    def basket_price(self):
+        return sum(self._basket.values())
 
 
-alex = User('alex',15,'asd')
-print(alex.get_age())
-alex.set_age(21)
-print(alex.get_age())
+
+
+check = Basket()
+check.add_item('asf',13)
+check.add_item('asfa',15)
+check.add_item('asfa',15)
+check.check_basket()
+print(check.basket_price())
